@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+  /* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 10px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header .navbar {
+    display: flex;
+    list-style: none;
+}
+
+.header .navbar .nav-item {
+    margin: 0 10px;
+}
+
+.header .navbar .nav-link {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.header .navbar .nav-link:hover, 
+.header .navbar .nav-item.active .nav-link {
+    color: #f9a602;
+}
+
+.header #menu-btn {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.pricing .heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.pricing .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pricing .box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.pricing .box:hover {
+    transform: translateY(-10px);
+}
+
+.pricing .box .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #f9a602;
+}
+
+.pricing .box .price {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #444;
+}
+
+.pricing .box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing .box ul li {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.pricing .box ul li i {
+    color: #f9a602;
+    margin-right: 10px;
+}
+
+.pricing .box button {
+    background: #f9a602;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.pricing .box button:hover {
+    background: #d48402;
+}
+
+/* Footer Section */
+.footer {
+    background: #222;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer .box-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer .box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer .box .share a {
+    margin: 0 5px;
+    color: #f9a602;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .box .share a:hover {
+    color: #d48402;
+}
+
+.footer .box p, 
+.footer .box a {
+    font-size: 16px;
+    color: #ddd;
+    text-decoration: none;
+}
+
+.footer .box a:hover {
+    color: #f9a602;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .navbar {
+        display: none;
+        flex-direction: column;
+    }
+
+    .header #menu-btn {
+        display: block;
+    }
+
+    .header.active .navbar {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #222;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing .box-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer .box-container {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <!-- header -->
+    <section class="header">
+
+        <a href="#" class="logo">Princess Choice Salon</a>
+     
+        <nav class="navbar">
+          <li class="nav-item "><a href="home.php" class="nav-link">home</a></li>
+          <li class="nav-item "><a href="booking.html" class="nav-link">Book Now</a></li>
+          <li class="nav-item "><a href="style.html" class="nav-link">style</a></li>
+          <li class="nav-item active"><a href="pricing.html" class="nav-link">pricing</a></li>
+          <li class="nav-item"><a href="shop.html" class="nav-link">shop</a></li>
+          <li class="nav-item"><a href="donation.html" class="nav-link">donation</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">about us</a></li>
+       </nav>
+        
+        <div id="menu-btn" class="fas fa-bars"></div>
+     
+     </section>
+<!-- header -->
+
+<!-- pricing -->
+<section class="pricing" id="pricing">
+
+   <h1 class="heading">Pricing</h1>
+
+   <div class="box-container">
+
+       <div class="box">
+         <h3 class="title">hair styling</h3>
+         <div class="price">
+           <span class="currency">Rs</span>
+           <p><span class="amount">1000</span></p>
+         </div>
+         <ul>
+           <li> <i class="fas fa-check"></i> Simple Haircut </li>
+           <li> <i class="fas fa-check"></i> layer cut </li>
+           <li> <i class="fas fa-check"></i> Keratin treatment</li>
+           <li> <i class="fas fa-check"></i> Straightener</li>
+         </ul>
+         <a href="payment-method.html"><button>book a visit</button></a>
+       </div>
+       
+       <div class="box">
+         <h3 class="title">makeup</h3>
+         <div class="price">
+           <span class="currency">Rs</span>
+           <span class="amount">1500</span>
+         </div>
+         <ul>
+           <li> <i class="fas fa-check"></i> Makeup</li>
+           <li> <i class="fas fa-check"></i> Professional Makeup </li>
+           <li> <i class="fas fa-check"></i> Blush On</li>
+           <li> <i class="fas fa-check"></i> Facial Massage</li>
+         </ul>
+         <a href="payment-method.html"><button>book a visit</button></a>
+       </div>
+       
+       <div class="box">
+         <h3 class="title">massage</h3>
+         <div class="price">
+           <span class="currency">Rs</span>
+           <span class="amount">3000</span>
+         </div>
+         <ul>
+           <li> <i class="fas fa-check"></i>Massage</li>
+           <li> <i class="fas fa-check"></i>Spa</li>
+           <li> <i class="fas fa-check"></i>Foot Spa</li>
+           <li> <i class="fas fa-check"></i>Relaxing</li>
+         </ul>
+         <a href="payment-method.html"><button>book a visit</button></a>
+       </div>
+       
+   </div>
+   
+</section>
+<!-- pricing end -->
+ 
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-logo">
+          <h2>Princess Choice Salon</h2>
+          <p>Unmatched Beauty Services</p>
+      </div>
+      <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+      </div>
+      <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <div class="icon-text"><i class="fas fa-map-marker-alt"></i><p>123 Beauty St, City</p></div>
+          <div class="icon-text"><i class="fas fa-phone-alt"></i><p>(123) 456-7890</p></div>
+          <div class="icon-text"><i class="fas fa-envelope"></i><p>contact@princesschoice.com</p></div>
+      </div>
+  </div>
+  <div class="footer-credit">
+      <p>© 2024 Princess Choice Salon. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- footer end-->
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

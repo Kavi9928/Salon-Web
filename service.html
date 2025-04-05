@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf6f0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e65c50;
+        }
+
+        /* Header section */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ff6f61;
+            color: #fff;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 16px;
+            color: #fff;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ffe1db;
+        }
+
+        #menu-btn {
+            display: none;
+        }
+
+        /* Services section */
+        .services {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services .heading {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+/* Footer Styling */
+.footer {
+            background-color: #000;
+            padding: 40px 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo, .footer-links, .footer-contact {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            color: #ff0000;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .footer-social-icons a {
+            font-size: 24px;
+            color: #fff;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-social-icons a:hover {
+            color: #ff0000;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: #ff0000;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ff0000;
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .footer-contact .icon-text {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-contact .icon-text i {
+            font-size: 18px;
+            color: #ff0000;
+            margin-right: 8px;
+        }
+
+        .footer-credit {
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .nav-item-person a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.6);
+        }
+
+        .nav-item-person a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 14px rgba(255, 75, 43, 0.8);
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+        }
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    </style>
+</head>
+<body>
+
+    <!-- header -->
+    <section class="header">
+        <a href="#" class="logo">Princess Choice Salon</a>
+         <nav class="navbar">
+            <li class="nav-item active"><a href="home.php" class="nav-link">home</a></li>
+            <li class="nav-item"><a href="booking.php" class="nav-link"><a href="login_form.php"> Book Now</a></li>
+            <li class="nav-item "><a href="style.html" class="nav-link">style</a></li>
+            <li class="nav-item"><a href="products.php" class="nav-link">shop</a></li>
+            <li class="nav-item"><a href="service.html" class="nav-link">service</a></li>
+            <li class="nav-item"><a href="donation.html" class="nav-link">donation</a></li>
+            <li class="nav-item"><a href="about.php" class="nav-link">about us</a></li>
+            <li class="nav-item"><a href="user-profile.html" class="nav-link">profile</a></li>
+         </nav>
+         <div id="menu-btn" class="fas fa-bars"></div>
+      </section>
+<!-- header -->
+
+<!-- services -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> services</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/services-1.jpg" alt="">
+            <div class="content">
+                <a href="pricing.html" class="btn">Hair</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/services-2.jpg" alt="">
+            <div class="content">
+                <a href="pricing.html" class="btn">Makeup</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/services-3.jpg" alt="">
+            <div class="content">
+                <a href="pricing.html" class="btn">Massage</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- services end -->
+
+<!-- footer -->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <h2>Princess Choice Salon</h2>
+            <p>Unmatched Beauty Services</p>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <div class="icon-text"><i class="fas fa-map-marker-alt"></i><p>123 Beauty St, City</p></div>
+            <div class="icon-text"><i class="fas fa-phone-alt"></i><p>(123) 456-7890</p></div>
+            <div class="icon-text"><i class="fas fa-envelope"></i><p>contact@princesschoice.com</p></div>
+        </div>
+    </div>
+    <div class="footer-credit">
+        <p>© 2024 Princess Choice Salon. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- footer end-->
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
